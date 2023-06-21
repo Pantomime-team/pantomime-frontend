@@ -24,10 +24,11 @@ from annotated_text import annotated_text
 page_bcg_1 = """ 
 <style>
 [data-testid="stAppViewContainer"] {
-background-color: #000218;
+background-color: #353358;
 opacity: 1;
-background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #000218 40px ), repeating-linear-gradient( #35335855, #353358 );
-  }
+background-image: radial-gradient(circle at center center, #000218, #353358), repeating-radial-gradient(circle at center center, #000218, #000500, 40px, transparent 80px, transparent 120px);
+background-blend-mode: multiply;
+}
 
 <style>
 """
@@ -50,6 +51,7 @@ hide_streamlit_style = """
 <style>
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
+header {visibility: hidden;}
 
 </style>
 
@@ -58,7 +60,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 #Change bcg color
-#st.markdown(page_bcg_1, unsafe_allow_html=True)
+st.markdown(page_bcg_1, unsafe_allow_html=True)
 
 predict_route = "http://localhost:80/predict"  # Temporarily
 
@@ -78,14 +80,15 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.image("https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg", width=300, use_column_width=True, caption="logo trust me bro")
+    #st.image("https://avatars.githubusercontent.com/u/136185091?s=200&v=4", width=250, use_column_width=True, caption="logo trust me bro")
 
 with col2:
     #st.title("Pantomime")
-    st.write(" is Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id ")
+    st.write(" is Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore m dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id ")
 
 
 with st.container():
-    st.title("ASL Translator")
+    st.markdown("<h1 style='text-align: center; color: white;'>RSL Translator</h1>", unsafe_allow_html=True)
     
     st.subheader("Translate sign language to russian")
 
@@ -119,6 +122,7 @@ image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-di
 col1, col2 = st.columns([3,2])
 
 with col1:
+    
     st.title("Vladislav Kulikov")
 
     annotated_text(
@@ -130,9 +134,10 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
+st.write("---")
 # Daniel Satakhrushev
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
-col1, col2 = st.columns([3,2])
+col2, col1 = st.columns([2,3])
 
 with col1:
     st.title("Daniel Satakhrushev")
@@ -147,6 +152,7 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
+st.write("---")
 # Ivan Chernakov
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
@@ -156,20 +162,22 @@ with col1:
     st.title("Ivan Chernakov")
 
     annotated_text(
-        ("Lead Designer", "", "#6200ee"),
-        " ",
         ("Frontend developer", "", "#8eaf20"),
         " ",
+        ("Lead Designer", "", "#6200ee"),
+        " ",
+        
         ("ML-Team", "", "#ff5436"),
         )
 
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
+st.write("---")
 # Alexandr Kudasov
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
-col1, col2 = st.columns([3,2])
+col2, col1 = st.columns([2,3])
 
 with col1:
     st.title("Alexandr Kudasov")
@@ -183,6 +191,7 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
+st.write("---")
 # Vitaliy Alifanov
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
@@ -198,10 +207,11 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
+st.write("---")
 # Daria Verevkina
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
-col1, col2 = st.columns([3,2])
+col2, col1 = st.columns([2,3])
 
 with col1:
     st.title("Daria Verevkina")
@@ -213,6 +223,7 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
+st.write("---")
 # Nastya Palashkina
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
