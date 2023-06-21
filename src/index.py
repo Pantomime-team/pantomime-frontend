@@ -29,7 +29,7 @@ column_bcg = """
     -webkit-box-pack: top;
     padding: 1rem;
     background-opacity: 0.5;
-    background-color: rgb(38, 39, 48);
+    background-color: rgb(35, 33, 58);
     border-radius: 0.5rem;
     }
     div[data-testid="stHorizontalBlock"] > div:Last-of-type {
@@ -39,7 +39,7 @@ column_bcg = """
     -webkit-box-pack: center;
     padding: 1rem;
     background-opacity: 0.5;
-    background-color: rgb(38, 39, 48);
+    background-color: rgb(35, 35, 58);
     border-radius: 0.5rem;
     }
     </style>
@@ -81,6 +81,18 @@ header {visibility: hidden;}
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
+file_uploader_bcg = """
+        <style>
+        div[data-testid="stFileUploader"] > div:Fist-of-type {
+        background-color: #353358;
+        background: #353358;
+        opacity: 1;
+        border-radius: 0.5rem;
+        }
+        </style>
+        """
+st.markdown(file_uploader_bcg, unsafe_allow_html=True)
+
 
 
 
@@ -115,7 +127,7 @@ with st.container():
     st.subheader("Translate sign language to russian")
 
     holder = st.empty()
-
+    
     file = holder.file_uploader(
         "Upload a video to translate from ASL",
         type=['.mp4'],
@@ -255,4 +267,23 @@ with col1:
     
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
+
+
+# Links 
+st.markdown("<h1 style='text-align: center; color: white;'>Links</h1>", unsafe_allow_html=True)
+# Button to Github with link
+import webbrowser
+
+url_github = 'https://github.com/Pantomime-team'
+url_capstone = 'https://capstone.innopolis.university/docs/groups/pantomime/'
+
+col1, col2 = st.columns([1,3.5])
+with col1:
+    if st.button('Our GitHub'):
+        webbrowser.open_new_tab(url_github)
+
+with col2:
+    if st.button('Our project Timeline'):
+        webbrowser.open_new_tab(url_capstone)
+
 
