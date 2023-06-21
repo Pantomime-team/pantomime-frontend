@@ -30,6 +30,8 @@ def predict_from_path(path):
         x.content.decode("utf-8")
         return x.text
 
+st.markdown("<h1 style='text-align: center; color: white;'>Pantomime</h1>", unsafe_allow_html=True)
+
 with st.container():
     st.title("ASL Translator")
     st.subheader("Translate sign language to russian")
@@ -55,4 +57,23 @@ with st.container():
 
         st.balloons()
 
-# pip remove 
+
+st.markdown("<h1 style='text-align: center; color: white;'>Our beloved Team</h1>", unsafe_allow_html=True)
+
+def NewPerson(name, role, image):
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.title(name)
+        st.write(role)
+
+    with col2:
+        st.image(image, width=300)
+
+NewPerson("Vladislav Kulikov", "Team Lead", "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg")
+NewPerson("Daniel Satakhrushev", "Frontend ML-team", "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg")
+NewPerson("Ivan Chernakov", "Frontend dev, ML-team", "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg")
+NewPerson("Alexandr Kudasov", "Backend dev", "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg")
+NewPerson("Vitaliy Alifanoiv", "ML-team", "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg")
+NewPerson("Daria Verevkina", "Designer", "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg")
+NewPerson("Nastya Palashkina", "Designer", "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg")
