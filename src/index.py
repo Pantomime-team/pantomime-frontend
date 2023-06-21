@@ -19,9 +19,45 @@ from annotated_text import annotated_text
 #     ),
 # )
 
+# Background Color For Columns
+column_bcg = """
+    <style>
+    div[data-testid="stHorizontalBlock"] > div:First-of-type {
+    display: flex;
+    -webkit-box-align: top;
+    align-items: top;
+    -webkit-box-pack: top;
+    padding: 1rem;
+    background-opacity: 0.5;
+    background-color: rgb(38, 39, 48);
+    border-radius: 0.5rem;
+    }
+    div[data-testid="stHorizontalBlock"] > div:Last-of-type {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: top;
+    -webkit-box-pack: center;
+    padding: 1rem;
+    background-opacity: 0.5;
+    background-color: rgb(38, 39, 48);
+    border-radius: 0.5rem;
+    }
+    </style>
+    """
+st.markdown(column_bcg, unsafe_allow_html=True)
 
-#Cute wave
-page_bcg_1 = """ 
+# To Round Images
+rounding_images = """
+    <style>
+    img {
+    border-radius: 0.5rem;
+    }
+    </style>
+    """
+st.markdown(rounding_images, unsafe_allow_html=True)
+
+# Cute Wave Background
+page_bcg = """ 
 <style>
 [data-testid="stAppViewContainer"] {
 background-color: #353358;
@@ -29,24 +65,11 @@ opacity: 1;
 background-image: radial-gradient(circle at center center, #000218, #353358), repeating-radial-gradient(circle at center center, #000218, #000500, 40px, transparent 80px, transparent 120px);
 background-blend-mode: multiply;
 }
-
 <style>
 """
+st.markdown(page_bcg, unsafe_allow_html=True)
 
-#dots diagonally
-page_bcg = """ 
-<style>
-[data-testid="stAppViewContainer"] {
-background-color: #000218;
-opacity: 1;
-background-image:  radial-gradient(#353358 2px, transparent 2px), radial-gradient(#353358 2px, #000218 2px);
-background-size: 80px 80px;
-background-position: 0 0,40px 40px;
-  }
-
-<style>
-"""
-
+# Hide Streamlit Additionals
 hide_streamlit_style = """
 <style>
 #MainMenu {visibility: hidden;}
@@ -59,8 +82,7 @@ header {visibility: hidden;}
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 
-#Change bcg color
-st.markdown(page_bcg_1, unsafe_allow_html=True)
+
 
 predict_route = "http://localhost:80/predict"  # Temporarily
 
@@ -74,12 +96,12 @@ def predict_from_path(path):
         x.content.decode("utf-8")
         return x.text
 
+# Title
 st.markdown("<h1 style='text-align: center; color: white;'>Pantomime</h1>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
-
 with col1:
-    st.image("https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg", width=300, use_column_width=True, caption="logo trust me bro")
+    st.image("https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg", width=300, use_column_width=False, caption="logo trust me bro")
     #st.image("https://avatars.githubusercontent.com/u/136185091?s=200&v=4", width=250, use_column_width=True, caption="logo trust me bro")
 
 with col2:
@@ -122,7 +144,6 @@ image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-di
 col1, col2 = st.columns([3,2])
 
 with col1:
-    
     st.title("Vladislav Kulikov")
 
     annotated_text(
@@ -134,7 +155,6 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
-st.write("---")
 # Daniel Satakhrushev
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 col2, col1 = st.columns([2,3])
@@ -152,7 +172,7 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
-st.write("---")
+
 # Ivan Chernakov
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
@@ -173,7 +193,7 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
-st.write("---")
+
 # Alexandr Kudasov
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
@@ -191,7 +211,6 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
-st.write("---")
 # Vitaliy Alifanov
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
@@ -207,7 +226,6 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
-st.write("---")
 # Daria Verevkina
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
@@ -223,7 +241,6 @@ with col1:
 with col2:
     st.image(image, width=300, caption="cutie kitty", use_column_width=True)
 
-st.write("---")
 # Nastya Palashkina
 image = "https://w-dog.ru/wallpapers/5/18/289291145046987/evropejskaya-koshka-dikij-kot-morda-vzglyad.jpg"
 
