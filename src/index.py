@@ -22,14 +22,13 @@ from annotated_text import annotated_text
 # Background Color For Columns
 column_bcg = """
     <style>
-    div[data-testid="stHorizontalBlock"] > div:First-of-type {
+        div[data-testid="stHorizontalBlock"] > div:First-of-type {
     display: flex;
-    -webkit-box-align: top;
+    -webkit-box-align: center;
     align-items: top;
-    -webkit-box-pack: top;
+    -webkit-box-pack: center;
     padding: 1rem;
-    background-opacity: 0.5;
-    background-color: rgb(35, 33, 58);
+    background-color: rgba(35, 35, 58, .7);
     border-radius: 0.5rem;
     }
     div[data-testid="stHorizontalBlock"] > div:Last-of-type {
@@ -38,10 +37,10 @@ column_bcg = """
     align-items: top;
     -webkit-box-pack: center;
     padding: 1rem;
-    background-opacity: 0.5;
-    background-color: rgb(35, 35, 58);
+    background-color: rgba(35, 35, 58, .7);
     border-radius: 0.5rem;
     }
+
     </style>
     """
 st.markdown(column_bcg, unsafe_allow_html=True)
@@ -81,21 +80,6 @@ header {visibility: hidden;}
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
-file_uploader_bcg = """
-        <style>
-        div[data-testid="stFileUploader"] > div:Fist-of-type {
-        background-color: #353358;
-        background: #353358;
-        opacity: 1;
-        border-radius: 0.5rem;
-        }
-        </style>
-        """
-st.markdown(file_uploader_bcg, unsafe_allow_html=True)
-
-
-
-
 predict_route = "http://localhost:80/predict"  # Temporarily
 
 def predict(file):
@@ -109,7 +93,8 @@ def predict_from_path(path):
         return x.text
 
 # Title
-st.markdown("<h1 style='text-align: center; color: white;'>Pantomime</h1>", unsafe_allow_html=True)
+
+st.markdown("<h1 style='text-align: center; font-size: 120px; color: white;'>Pantomime</h1>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 with col1:
