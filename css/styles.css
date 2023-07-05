@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
 
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+body::before{
+  filter: url(#grainy) opacity(0.4);
+  background-attachment: fixed;
+}
+
 body {
   background-color: whitesmoke;
 }
