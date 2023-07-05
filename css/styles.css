@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+body {
+  background-color: whitesmoke;
+}
+
+h1, h2, h3, h4 {
+  text-align: center;
+}
+
+span, p, h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+/* DESKTOP */
+@media screen and (min-width: 960px) {
+  h1 {
+    font-size: 120px;
+  }
+}
+
+/* MOBILE */
+@media screen and (max-width: 960px) {
+  h1 {
+    font-size: 12vw;
+  }
+}
+
+/* div {
+  border: 2px ridge red !important;
+  padding: 8px;
+} */
+
+section {
+  margin: auto;
+  max-width: 960px;
+}
+
+
+
+
+/* 
+
+
+#drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: 480px;
+  font-family: sans-serif;
+  margin: 100px auto;
+  padding: 20px;
+}
+#drop-area.highlight {
+  border-color: purple;
+}
+p {
+  margin-top: 0;
+}
+.my-form {
+  margin-bottom: 10px;
+}
+#gallery {
+  margin-top: 10px;
+}
+#gallery img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.button {
+  display: inline-block;
+  padding: 10px;
+  background: #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.button:hover {
+  background: #ddd;
+}
+#fileElem {
+  display: none;
+} */

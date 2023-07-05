@@ -1,0 +1,9 @@
+#header div {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: top;
+    -webkit-box-pack: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 0.5rem;
+}
