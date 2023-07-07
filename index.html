@@ -9,162 +9,203 @@
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/sign-language-translate.css" />
     <link rel="stylesheet" href="css/team-members.css" />
-    <link rel="stylesheet" href="css/links.css" />
+    <link rel="stylesheet" href="css/contact.css" />
 
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script>
+      function makeDoubleDelegate(fn1, fn2) {
+        return function () {
+          if (fn1) fn1();
+          if (fn2) fn2();
+        };
+      }
+    </script>
+    <script src="./js/webcam-control.js"></script>
   </head>
+
   <body>
-
-    <svg>
-      <filter id="grainy">
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="1"/>
-      </filter>
-    </svg>
-
-
-
-    <section id="header">
-      <h1 class="title">Pantomime</h1>
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore m dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-        officia deserunt mollit anim id Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non
-      </div>
-    </section>
-
-    <section id="sign-language-translate">
-      <h2 class="subtitle">RSL Translator</h2>
-      <h3 class="subsubtitle">Upload video</h3>
-
-      <div id="drop-area">
-        <form class="my-form">
-          <p>Drag and Drop file here Limit 200MB per file &#x2022; MP4 only</p>
-          <input
-            type="file"
-            id="fileElem"
-            multiple
-            accept="video/mp4"
-            onchange="handleFiles(this.files)"
-          />
-          <label class="button" for="fileElem">Browse files</label>
-        </form>
-      </div>
-
-      <h3 class="subsubtitle">...or caption in real-time</h3>
-
-      <div>
-        <!-- <video id="video" width="640" height="480" autoplay></video> -->
-        <!-- <canvas
-          id="canvas"
-          width="640"
-          height="480"
-          style="display: none"
-        ></canvas> -->
-
-        <button id="connect_btn">CONNECT</button>
-        <button id="disconnect_btn">DISCONNECT</button>
-        <span id="recognised_text"></span>
-      </div>
-    </section>
-
-    <section id="team-members">
-      <h2 class="subtitle">Team</h2>
-
-      <div class="wrapper">
-        <div class="team-member">
-          <div class="team-photo">
-            <img src="assets/images/koshka.jpg" alt="" />
+    <main class="scroll-container">
+      <section id="header">
+        <div class="wrapper">
+          <div class="box pink-box">
+            <h1 class="title">Pantomime</h1>
+            <h3 class="subsubtitle">Онлайн-переводчик жестового языка</h3>
           </div>
-          <div class="team-description">
-            <h3>Vladislav Kulikov</h3>
-            <span class="team-lead">Team Lead</span>
-            <span class="ml-engineer">ML-Engineer</span>
+
+          <div class="box blue-box">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore m dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non
+            </p>
           </div>
         </div>
+      </section>
 
-        <div class="team-member">
-          <div class="team-photo">
-            <img src="assets/images/koshka.jpg" alt="" />
+      <section id="sign-language-translate-upload">
+        <div class="wrapper">
+          <h2 class="subtitle">
+            Чтобы использовать <b>Pantomime</b>, загрузите видео
+          </h2>
+
+          <div class="box" id="upload-drop-area">
+            <input id="upload-input-file" type="file" accept="video/mp4" />
+            <span class="button">Выберите файл</span>
+            <span class="label" data-js-label>Файл не выбран</span>
           </div>
-          <div class="team-description">
-            <h3>Daniel Satarov</h3>
-            <span class="frontend">Frontend Developer</span>
-            <span class="backend">Backend Developer</span>
-            <span  class="ml-engineer">ML Engineer</span>
+
+          <p>
+            <span>Только файлы формата MP4</span>
+            <span style="float: right">Размер файла до 200МБ</span>
+          </p>
+        </div>
+      </section>
+
+      <section id="sign-language-translate-stream">
+        <div class="wrapper">
+          <h2 class="subtitle">
+            ...или начните переводить жесты в реальном времени
+          </h2>
+
+          <div id="webcam">
+            <div class="webcam-video-container">
+              <video class="box" id="webcam-stream" autoplay></video>
+            </div>
+            <canvas id="webcam-stream-canvas" width="224" height="224"></canvas>
+
+            <div id="webcam-stream-captions">
+              <div class="text-wrapper">
+                <p class="caption"></p>
+              </div>
+            </div>
+
+            <div id="webcam-stream-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="128"
+                height="128"
+                fill="currentColor"
+                class="bi bi-camera-video"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"
+                />
+              </svg>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="team-member">
-          <div class="team-photo">
-            <img src="assets/images/koshka.jpg" alt="" />
-          </div>
-          <div class="team-description">
-            <h3>Ivan Chernakov</h3>
-            <span class="frontend">Frontend Developer</span>
-            <span class="designer">Lead Designer</span>
-            <span class="ml-engineer">ML Engineer</span>
+      <section id="team-members">
+        <div class="wrapper">
+          <h2 class="subtitle">Наша команда</h2>
+
+          <div class="wrapper">
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/koshka.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <h3>Владислав Куликов</h3>
+                <span class="team-lead">Team Lead</span>
+                <span class="ml-engineer">ML-Engineer</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/koshka.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <h3>Даниэль Сатаров</h3>
+                <span class="frontend">Frontend Developer</span>
+                <span class="backend">Backend Developer</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/koshka.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <h3>Ivan Chernakov</h3>
+                <span class="frontend">Frontend Developer</span>
+                <span class="designer">Lead Designer</span>
+                <span class="ml-engineer">ML Engineer</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/koshka.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <h3>Alexandr Kudasov</h3>
+                <span class="backend">Backend Developer</span>
+                <span class="ml-engineer">ML Engineer</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/koshka.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <h3>Daria Verevkina</h3>
+                <span class="designer">Designer</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/koshka.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <h3>Vitaliy Alifanov</h3>
+                <span class="ml-engineer">ML Engineer</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/koshka.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <h3>Nastya Palashkina</h3>
+                <span class="designer">Designer</span>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="team-member">
-          <div class="team-photo">
-            <img src="assets/images/koshka.jpg" alt="" />
-          </div>
-          <div class="team-description">
-            <h3>Alexandr Kudasov</h3>
-            <span class="backend">Backend Developer</span>
-            <span class="ml-engineer">ML Engineer</span>
-          </div>
+      <section id="contact">
+        <div class="wrapper">
+          <h2 class="subtitle">Обратная связь</h2>
         </div>
+      </section>
 
-        <div class="team-member">
-          <div class="team-photo">
-            <img src="assets/images/koshka.jpg" alt="" />
-          </div>
-          <div class="team-description">
-            <h3>Daria Verevkina</h3>
-            <span class="designer">Designer</span>
-          </div>
-        </div>
-
-        <div class="team-member">
-          <div class="team-photo">
-            <img src="assets/images/koshka.jpg" alt="" />
-          </div>
-          <div class="team-description">
-            <h3>Vitaliy Alifanov</h3>
-            <span class="ml-engineer">ML Engineer</span>
-          </div>
-        </div>
-
-        <div class="team-member">
-          <div class="team-photo">
-            <img src="assets/images/koshka.jpg" alt="" />
-          </div>
-          <div class="team-description">
-            <h3>Nastya Palashkina</h3>
-            <span class="designer">Designer</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="links">
-      <h2 class="subtitle">Links</h2>
-    </section>
-
-    <footer></footer>
+      <footer></footer>
+    </main>
   </body>
 
-  <script>
+  <!-- <script>
     let dropArea = document.getElementById("drop-area");
     ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
       dropArea.addEventListener(eventName, preventDefaults, false);
@@ -189,5 +230,5 @@
     function unhighlight(e) {
       dropArea.classList.remove("highlight");
     }
-  </script>
+  </script> -->
 </html>

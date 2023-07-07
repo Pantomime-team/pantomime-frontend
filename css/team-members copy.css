@@ -1,0 +1,81 @@
+/* #team-members .wrapper {
+}
+
+#team-members .team-member {
+  background-color: red;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+  margin-bottom: 40px;
+}
+
+/* #team-members .team-photo { */
+  /* display: relative;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.5rem;
+  margin: 0.5rem; */
+/* } */
+
+/* #team-members .team-description h3 {
+  width: 100%;
+}
+
+#team-members .team-description {
+  flex: 2;
+  display: block;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  
+  
+  align-items: center;
+  justify-content:space-evenly;
+  height: 100%;
+  display: flex;
+} */
+
+#team-members .team-photo img {
+  border-radius: 0.5rem;
+  max-width: 100%;
+  display: none;
+}
+
+@media screen and (min-width: 960px) {
+  #team-members .team-member:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+}
+/* 
+#team-members .team-member span {
+  display: inline-block;
+} */
+
+/* #team-members .team-member span {
+  display: inline-block;
+  color: #fff;
+  border-radius: 2rem;
+  padding: 6px;
+} */
+
+#team-members .team-member span.designer {
+  background-color: #6200ee;
+}
+
+#team-members .team-member span.frontend {
+  background-color: #8eaf20;
+}
+
+#team-members .team-member span.backend {
+  background-color: #e39801;
+}
+
+#team-members .team-member span.team-lead {
+  background-color: #6f6f6f;
+}
+
+#team-members .team-member span.ml-engineer {
+  background-color: #ff5436;
+}
