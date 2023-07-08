@@ -15,3 +15,8 @@
   margin-bottom: 2vh;
   margin-top: 4vh;
 }
+
+p {
+  margin-top: 0.5em; /* Отступ сверху */
+  margin-bottom: 1em; /* Отступ снизу */
+ }

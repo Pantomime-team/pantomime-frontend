@@ -15,9 +15,10 @@
 
 .team-description {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   flex: 2;
+  height: 30vh;
 }
 
 .team-description * {
@@ -27,15 +28,17 @@
   text-align: center;
   background: #3794fe;
   padding: 10px 0;
-  margin: 6px 0;
+  margin: 10px 0;
 }
 
 .team-description *:first-child {
   width: 100%;
+  border-radius: 5rem;
 }
 
 .team-description *:not(:first-child) {
   flex: 1;
+  border-radius: 5rem;
 }
 
 .team-member span {
@@ -60,6 +63,11 @@
 
 .team-member span.ml-engineer {
   background-color: #ff5436;
+}
+
+.team-member span.member-name {
+  background-color: #000000;
+  font-size: 40px;
 }
 
 @media screen and (min-width: 960px) {

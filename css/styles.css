@@ -49,11 +49,15 @@ h3,
 }
 
 .pink-box {
-  background: linear-gradient(90deg, #ffc0cb 57%, #0000 57%);
+  background: linear-gradient(90deg, #0000 0%, #ffc0cb 0%);
 }
 
 .blue-box {
-  background: linear-gradient(90deg, #0000 32%, #c9cbff 32%);
+  background: linear-gradient(90deg,#c9cbff 30%,  #0000 100%);
+}
+
+.green-box {
+  background: linear-gradient(90deg, #0000 5%, #c9ffd0 30%);
 }
 
 section {
