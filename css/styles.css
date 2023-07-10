@@ -96,6 +96,11 @@ h3,
   background: linear-gradient(90deg, #F5F1ED 63%, #0000 63%);
 }
 
+.colour-box {
+  background-color: var(--colour);
+  color: white;
+}
+
 section {
   margin: 0 auto;
   max-width: 960px;
