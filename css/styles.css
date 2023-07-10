@@ -49,24 +49,20 @@ h3,
 }
 
 .pink-box {
-  background: linear-gradient(90deg, #0000 0%, #ffc0cb 0%);
+  background: linear-gradient(90deg, #ffc0cb 57%, #0000 57%);
 }
 
 .blue-box {
-  background: linear-gradient(90deg,#c9cbff 30%,  #0000 100%);
+  background: linear-gradient(90deg, #0000 32%, #c9cbff 32%);
 }
 
 .green-box {
-  background: linear-gradient(90deg, #0000 5%, #c9ffd0 30%);
+  background: linear-gradient(90deg, #c9ffd0 63%, #0000 63%);
 }
 
 section {
   margin: 0 auto;
   max-width: 960px;
-}
-
-body {
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
 }
 
 /* DESKTOP */
@@ -107,7 +103,7 @@ body {
   } */
 
   section {
-    margin-bottom: 200px;
+    margin-bottom: 120px;
   }
 }
 
