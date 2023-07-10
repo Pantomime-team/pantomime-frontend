@@ -101,21 +101,21 @@
   }
 }
 .team-member span.designer {
-  background-color: #6200ee;
+  background-color: #779be7;
 }
 
 .team-member span.frontend {
-  background-color: #8eaf20;
+  background-color: #e77777;
 }
 
 .team-member span.backend {
-  background-color: #e39801;
+  background-color: #90cc74;
 }
 
 .team-member span.team-lead {
-  background-color: #6f6f6f;
+  background-color: #000000;
 }
 
 .team-member span.ml-engineer {
-  background-color: #ff5436;
+  background-color: #e7b377;
 }

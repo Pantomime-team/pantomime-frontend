@@ -88,17 +88,13 @@ h3,
   -moz-text-fill-color: transparent;
 }
 
-.generic-box-right {
-  background: linear-gradient(90deg, #0000 32%, #F5F1ED 32%);
-}
-
-.generic-box-left {
-  background: linear-gradient(90deg, #F5F1ED 63%, #0000 63%);
-}
-
 .colour-box {
   background-color: var(--colour);
   color: white;
+}
+
+.generic-box {
+  background-color: var(--colour);
 }
 
 section {
