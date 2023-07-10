@@ -3,7 +3,7 @@
 }
 
 #upload-drop-area:hover {
-  border-color: dodgerblue;
+  border-color: #779BE7;
   cursor: pointer;
 }
 
@@ -15,7 +15,7 @@
 }
 
 #upload-drop-area:hover .button {
-  background: dodgerblue;
+  background: #779BE7;
   color: white;
 }
 
