@@ -3,8 +3,14 @@ window.onload = makeDoubleDelegate(window.onload, () => {
   let webcam_canvas = document.getElementById("webcam-stream-canvas");
   let webcam_canvas_ctx = webcam_canvas.getContext("2d");
 
+  let socket = io({ autoConnect: false });
+  let connected = false;
+
   let webcam_enable_btn = document.getElementById("webcam-stream-icon");
   webcam_enable_btn.addEventListener("click", () => {
+    socket.connect();
+    connected = true;
+
     navigator.mediaDevices
       .getUserMedia({ video: true })
       .then((stream) => {
@@ -19,7 +25,11 @@ window.onload = makeDoubleDelegate(window.onload, () => {
             webcam_canvas.width,
             webcam_canvas.height
           );
-        }, 1000 / 30); // 30 FPS
+
+          if (connected) {
+            socket.emit("data-stream", webcam_canvas.toDataURL("image/jpeg", 0.5));
+          }
+        }, 1000 / 15); // 15 FPS
       })
       .catch((err) => {
         console.log("[Error] " + err);
@@ -29,5 +39,11 @@ window.onload = makeDoubleDelegate(window.onload, () => {
 
     // Remove the event listener
     webcam_enable_btn.removeEventListener("click", () => {});
+
+    // Add captions callback
+    let recognized_text = document.getElementById("recognized-caption");
+    socket.on("recognized-caption", (data) => {
+      recognized_text.innerHTML += " " + data["gloss"];
+    });
   });
 });

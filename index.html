@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pantomime (demo)</title>
 
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/sign-language-translate.css" />
-    <link rel="stylesheet" href="css/team-members.css" />
-    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/sign-language-translate.css" />
+    <link rel="stylesheet" href="./css/team-members.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
 
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
     <script>
@@ -21,7 +21,6 @@
       }
     </script>
 
-    <script src="./js/data-streamer.js"></script>
     <script src="./js/file-uploader.js"></script>
     <script src="./js/webcam-control.js"></script>
   </head>
@@ -100,7 +99,7 @@
 
             <div id="webcam-stream-captions">
               <div class="text-wrapper">
-                <p class="caption"></p>
+                <p id="recognized-caption" class="caption"></p>
               </div>
             </div>
 
@@ -150,7 +149,7 @@
               </div>
 
               <div class="team-description">
-                <span class="member-name">Даниэль Вахрушев</span>
+                <span class="member-name">Даниэль Сатаров</span>
                 <span class="badge frontend">Frontend-разработчик</span>
                 <span class="badge backend">Backend-разработчик</span>
               </div>
