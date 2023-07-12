@@ -1,38 +1,52 @@
-#upload-drop-area {
+.upload-file {
+  align-items: center;
   background-color: white;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
-#upload-drop-area:hover {
+.upload-file:hover {
   border-color: #779BE7;
   cursor: pointer;
 }
 
-#upload-drop-area .button {
-  cursor: pointer;
-  background: #eee;
-  border: none;
-  display: inline-block;
+.upload-file-over {
+  border-style: solid;
 }
 
-#upload-drop-area:hover .button {
-  background: #779BE7;
-  color: white;
+.upload-file-input {
+  display: none;
 }
 
-#upload-input-file {
-  cursor: pointer;
-  top: 0;
-  left: 0;
+.upload-file-thumb {
+  aspect-ratio: 3/2;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
+
+.upload-file-thumb video {
   width: 100%;
   height: 100%;
-  opacity: 0;
-  position: absolute;
-  z-index: 10;
 }
 
-#upload-drop-area.highlight {
-  border-color: purple;
+.upload-file-thumb::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  text-align: center;
+}
+
+#upload-progress {
+  width: 100%;
 }
 
 #webcam {
@@ -98,16 +112,10 @@
 
 /* DESKTOP */
 @media screen and (min-width: 960px) {
-  #upload-drop-area {
+  .upload-file {
     border: 5px dashed #ccc;
-    padding: 100px 50px;
+    height: 300px;
     margin: 25px auto;
-  }
-
-  #upload-drop-area .button {
-    border-radius: 2px;
-    margin-right: 8px;
-    padding: 8px 16px;
   }
 
   #webcam {
@@ -117,16 +125,10 @@
 
 /* MOBILE */
 @media screen and (max-width: 960px) {
-  #upload-drop-area {
+  .upload-file {
     border: 0.5vw dashed #ccc;
-    padding: 8vw 4vw;
+    height: 35vw;
     margin: 1.5vw 1vw;
-  }
-
-  #upload-drop-area .button {
-    border-radius: 0.2em;
-    margin-right: 1em;
-    padding: 0.4em 0.8em;
   }
 
   #webcam {

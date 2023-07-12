@@ -20,6 +20,9 @@
         };
       }
     </script>
+
+    <script src="./js/data-streamer.js"></script>
+    <script src="./js/file-uploader.js"></script>
     <script src="./js/webcam-control.js"></script>
   </head>
 
@@ -69,10 +72,9 @@
             </h2>
           </div>
 
-          <div class="box" id="upload-drop-area">
-            <input id="upload-input-file" type="file" accept="video/mp4" />
-            <span class="button">Выберите файл</span>
-            <span class="label" data-js-label>Файл не выбран</span>
+          <div class="upload-file box">
+            <span class="upload-file-prompt">Выберите или перетащите файл</span>
+            <input type="file" accept="video/mp4" class="upload-file-input" />
           </div>
 
           <p>
@@ -148,7 +150,7 @@
               </div>
 
               <div class="team-description">
-                <span class="member-name">Даниэль Сатаров</span>
+                <span class="member-name">Даниэль Вахрушев</span>
                 <span class="badge frontend">Frontend-разработчик</span>
                 <span class="badge backend">Backend-разработчик</span>
               </div>
@@ -223,31 +225,4 @@
       <footer></footer>
     </main>
   </body>
-
-  <!-- <script>
-    let dropArea = document.getElementById("drop-area");
-    ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-      dropArea.addEventListener(eventName, preventDefaults, false);
-    });
-
-    function preventDefaults(e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
-    ["dragenter", "dragover"].forEach((eventName) => {
-      dropArea.addEventListener(eventName, highlight, false);
-    });
-    ["dragleave", "drop"].forEach((eventName) => {
-      dropArea.addEventListener(eventName, unhighlight, false);
-    });
-
-    function highlight(e) {
-      dropArea.classList.add("highlight");
-    }
-
-    function unhighlight(e) {
-      dropArea.classList.remove("highlight");
-    }
-  </script> -->
 </html>

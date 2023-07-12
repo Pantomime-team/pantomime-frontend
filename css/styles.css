@@ -25,6 +25,7 @@ h4 {
   text-align: center;
 }
 
+.upload-file-thumb::after,
 .caption,
 p,
 label,
@@ -65,7 +66,7 @@ h3,
   background-size: 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }
@@ -83,7 +84,7 @@ h3,
   background-size: 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }
@@ -107,13 +108,17 @@ section {
   h1 {
     font-size: 120px;
   }
+
   h2 {
     font-size: 60px;
   }
+
   h3,
   .caption {
     font-size: 40px;
   }
+
+  .upload-file-thumb::after,
   p,
   label,
   span {
@@ -149,13 +154,17 @@ section {
   h1 {
     font-size: 14vw;
   }
+
   h2 {
     font-size: 8vw;
   }
+
   h3,
   .caption {
     font-size: 5vw;
   }
+
+  .upload-file-thumb::after,
   p,
   label,
   span {
