@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: url(../assets/images/background.webp) repeat;
+}
+
+p {
+  padding: 0 1em;
+}
+
+.caption,
+label,
+span,
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+}
+
+.upload-file-thumb::after,
+.caption,
+p,
+label,
+span,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", "Montserrat", sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+  line-height: 1;
+}
+
+h2 {
+  font-weight: 700;
+  line-height: 1;
+}
+
+h3,
+.caption {
+  font-weight: 400;
+  line-height: 1;
+}
+
+.colour-box-left {
+  background: linear-gradient(90deg, var(--colour) 55%, #0000 55%);
+  color: white;
+}
+
+.colour-box-left h1,
+.colour-box-left h2,
+.colour-box-left h3 {
+  background-color: black;
+  background-image: linear-gradient(90deg, white 55%, black 55%);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.colour-box-right {
+  background: linear-gradient(90deg, #0000 44%, var(--colour) 44%);
+  color: white;
+}
+
+.colour-box-right h1,
+.colour-box-right h2,
+.colour-box-right h3 {
+  background-color: black;
+  background-image: linear-gradient(90deg, black 44%, white 44%);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.colour-box {
+  background-color: var(--colour);
+  color: white;
+}
+
+.generic-box {
+  background-color: var(--colour);
+}
+
+section {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+/* DESKTOP */
+@media screen and (min-width: 960px) {
+  h1 {
+    font-size: 120px;
+  }
+
+  h2 {
+    font-size: 60px;
+  }
+
+  h3,
+  .caption {
+    font-size: 40px;
+  }
+
+  .upload-file-thumb::after,
+  p,
+  label,
+  span {
+    font-size: 20px;
+  }
+
+  .box {
+    border-radius: 0.3vh;
+    padding: 0.3vh;
+  }
+
+  /* .scroll-container {
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
+
+  section {
+    height: 100vh;
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } */
+
+  section {
+    margin-bottom: 120px;
+  }
+}
+
+/* MOBILE */
+@media screen and (max-width: 960px) {
+  h1 {
+    font-size: 14vw;
+  }
+
+  h2 {
+    font-size: 8vw;
+  }
+
+  h3,
+  .caption {
+    font-size: 5vw;
+  }
+
+  .upload-file-thumb::after,
+  p,
+  label,
+  span {
+    font-size: 3.25vw;
+  }
+
+  .box {
+    padding: 0.3vh;
+  }
+
+  section {
+    margin-bottom: 5vh;
+  }
+}

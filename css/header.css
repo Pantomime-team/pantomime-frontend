@@ -1,0 +1,28 @@
+#header {
+  text-align: justify;
+}
+
+#header .title {
+  line-height: 1;
+}
+
+#header .subsubtitle {
+  line-height: 0.8;
+  padding-bottom: 0.5em;
+}
+
+/* DESKTOP */
+@media screen and (min-width: 960px) {
+  #header .colour-box-left {
+    margin-bottom: 20px;
+    margin-top: 4vh;
+  }
+}
+
+/* MOBILE */
+@media screen and (max-width: 960px) {
+  #header .colour-box-left {
+    margin-bottom: 2vh;
+    margin-top: 4vh;
+  }
+}

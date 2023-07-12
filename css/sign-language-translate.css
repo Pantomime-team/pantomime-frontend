@@ -1,0 +1,152 @@
+.upload-file {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.upload-file:hover {
+  border-color: #779BE7;
+  cursor: pointer;
+}
+
+.upload-file-over {
+  border-style: solid;
+}
+
+.upload-file-input {
+  display: none;
+}
+
+.upload-file-thumb {
+  aspect-ratio: 3/2;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
+
+.upload-file-thumb video {
+  width: 100%;
+  height: 100%;
+}
+
+.upload-file-thumb::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  text-align: center;
+}
+
+#upload-progress {
+  width: 100%;
+}
+
+#webcam {
+  position: relative;
+}
+
+#webcam-stream {
+  background-color: black;
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  width: 100%;
+}
+
+#webcam-stream-canvas {
+  display: none;
+}
+
+#webcam-stream-icon {
+  border-radius: 5%;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: 25%;
+  transition: width 0.5s, height 0.5s;
+  filter: drop-shadow(0 0 0.75rem black);
+}
+
+#webcam-stream-icon:hover {
+  width: 50%;
+  height: 50%;
+}
+
+#webcam-stream-icon svg {
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+#webcam-stream-captions {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 18%;
+}
+
+.text-wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#webcam-stream-captions .caption {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: rtl;
+  text-align: left;
+}
+
+/* DESKTOP */
+@media screen and (min-width: 960px) {
+  .upload-file {
+    border: 5px dashed #ccc;
+    height: 300px;
+    margin: 25px auto;
+  }
+
+  #webcam {
+    margin: 25px auto;
+  }
+}
+
+/* MOBILE */
+@media screen and (max-width: 960px) {
+  .upload-file {
+    border: 0.5vw dashed #ccc;
+    height: 35vw;
+    margin: 1.5vw 1vw;
+  }
+
+  #webcam {
+    margin: 1.5vh auto;
+  }
+
+  .webcam-video-container {
+    width: 100%;
+    padding-top: 177.78%;
+    height: 0px;
+    position: relative;
+  }
+  
+  #webcam-stream {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

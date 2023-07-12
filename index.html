@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pantomime (demo)</title>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/sign-language-translate.css" />
+    <link rel="stylesheet" href="./css/team-members.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script>
+      function makeDoubleDelegate(fn1, fn2) {
+        return function () {
+          if (fn1) fn1();
+          if (fn2) fn2();
+        };
+      }
+    </script>
+
+    <script src="./js/file-uploader.js"></script>
+    <script src="./js/webcam-control.js"></script>
+  </head>
+
+  <body>
+    <main class="scroll-container">
+      <section id="header">
+        <div class="wrapper">
+          <div style="--colour: #a480cf" class="box colour-box-left">
+            <h1 class="title">Pantomime</h1>
+            <h3 class="subsubtitle">Онлайн-переводчик жестового языка</h3>
+          </div>
+
+          <div style="--colour: white" class="box generic-box">
+            <p>
+              Теперь нет необходимости беспокоиться о языковом барьере при
+              общении с людьми, использующими жестовый язык. <b>Pantomime</b> -
+              инновационный сервис, который мгновенно переводит жестовый язык на
+              русский прямо на вашем устройстве.
+            </p>
+          </div>
+
+          <br />
+
+          <div style="--colour: white" class="box generic-box">
+            <p>
+              Pantomime распознает и транслирует жесты в режиме реального
+              времени, обеспечивая максимально точный и надежный перевод.
+            </p>
+            <br />
+
+            <p>
+              Мы гордимся тем, что наш сервис помогает сделать мир более
+              доступным и инклюзивным для всех. Независимо от того, где вы
+              находитесь - на работе, в школе, в путешествии или дома -
+              Pantomime всегда будет рядом, чтобы поддержать вас в общении с
+              людьми, использующими жестовый язык.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sign-language-translate-upload">
+        <div class="wrapper">
+          <div style="--colour: #779be7" class="box colour-box">
+            <h2 class="subtitle">
+              Чтобы использовать <b>Pantomime</b>, загрузите видео
+            </h2>
+          </div>
+
+          <div class="upload-file box">
+            <span class="upload-file-prompt">Выберите или перетащите файл</span>
+            <input type="file" accept="video/mp4" class="upload-file-input" />
+          </div>
+
+          <p>
+            <span>Только файлы формата MP4</span>
+            <span style="float: right">Размер файла до 200МБ</span>
+          </p>
+        </div>
+      </section>
+
+      <section id="sign-language-translate-stream">
+        <div class="wrapper">
+          <div style="--colour: #779be7" class="box colour-box">
+            <h2 class="subtitle">
+              ...или начните переводить жесты в реальном времени
+            </h2>
+          </div>
+
+          <div id="webcam">
+            <div class="webcam-video-container">
+              <video class="box" id="webcam-stream" autoplay></video>
+            </div>
+            <canvas id="webcam-stream-canvas" width="224" height="224"></canvas>
+
+            <div id="webcam-stream-captions">
+              <div class="text-wrapper">
+                <p id="recognized-caption" class="caption"></p>
+              </div>
+            </div>
+
+            <div id="webcam-stream-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="128"
+                height="128"
+                fill="currentColor"
+                class="bi bi-camera-video"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="team-members">
+        <div class="wrapper">
+          <div style="--colour: #a480cf" class="box colour-box">
+            <h1 class="subtitle">Мы 👇</h1>
+          </div>
+
+          <br />
+
+          <div class="wrapper">
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/vlad.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <span class="member-name">Владислав Куликов</span>
+                <span class="badge team-lead">Тимлид</span>
+                <span class="badge ml-engineer">ML-инженер</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/danielpancake.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <span class="member-name">Даниэль Сатаров</span>
+                <span class="badge frontend">Frontend-разработчик</span>
+                <span class="badge backend">Backend-разработчик</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/furry.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <span class="member-name">Иван Чернаков</span>
+                <span class="badge frontend">Frontend-разработчик</span>
+                <span class="badge designer">Главный дизайнер</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/nertsal.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <span class="member-name">Александр Кудасов</span>
+                <span class="badge backend">Backend-разработчик</span>
+                <span class="badge ml-engineer">ML-инженер</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/daria.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <span class="member-name">Дарья Верёвкина</span>
+                <span class="badge designer">Дизайнер</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/vitaliy.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <span class="member-name">Виталий Алифанов</span>
+                <span class="badge ml-engineer">ML-инженер</span>
+              </div>
+            </div>
+
+            <div class="team-member">
+              <div class="team-photo">
+                <img src="assets/images/nastya.jpg" alt="" />
+              </div>
+
+              <div class="team-description">
+                <span class="member-name">Анастасия Палашкина</span>
+                <span class="badge designer">Дизайнер</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section id="contact">
+        <div class="wrapper">
+          <h2 class="subtitle">Обратная связь</h2>
+        </div>
+      </section> -->
+
+      <footer></footer>
+    </main>
+  </body>
+</html>
