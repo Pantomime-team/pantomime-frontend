@@ -25,6 +25,7 @@ h4 {
   text-align: center;
 }
 
+#upload-button,
 .upload-file-thumb::after,
 .caption,
 p,
@@ -118,6 +119,7 @@ section {
     font-size: 40px;
   }
 
+  #upload-button,
   .upload-file-thumb::after,
   p,
   label,
@@ -164,6 +166,7 @@ section {
     font-size: 5vw;
   }
 
+  #upload-button,
   .upload-file-thumb::after,
   p,
   label,
