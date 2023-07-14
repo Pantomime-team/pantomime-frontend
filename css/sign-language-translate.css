@@ -56,6 +56,7 @@
 #upload-button:hover {
   background-color: #779be7;
   color: white;
+  cursor: pointer;
 }
 
 #upload-button:active {
